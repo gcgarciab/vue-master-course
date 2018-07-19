@@ -6,9 +6,10 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  const name = 'Camilo'
+  export default {
+    name: 'app'
+  }
 </script>
 
 <style>
