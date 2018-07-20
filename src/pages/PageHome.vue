@@ -7,12 +7,10 @@
 
 <script>
   import sourceDate from '@/data'
-  import ThreadList from './ThreadList'
+  import ThreadList from '@/components/ThreadList'
   console.log(sourceDate)
 
   export default {
-    name: 'HelloWorld',
-
     components: {
       ThreadList
     },
