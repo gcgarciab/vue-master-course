@@ -2,7 +2,10 @@
   <div class="thread">
     <div>
       <p>
-        <a href="#">{{thread.title}}</a>
+        <!--<a :href="`/thread/${thread['.key']}`">{{thread.title}}</a> <!-- Link with parameter -->
+        <router-link :to="{ name: 'ThreadShow', params: {id: thread['.key']} }"> <!-- Good practice, pass name of route -->
+          {{thread.title}}
+        </router-link>
       </p>
       <p class="text-faded text-xsmall">
         By <a href="#">{{user.name}}</a>, {{thread.publishedAt}}.
