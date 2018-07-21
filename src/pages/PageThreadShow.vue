@@ -40,11 +40,10 @@
     },
 
     methods: {
-      addPost (eventData) {
+      addPost ({post}) { // {post} -> desestructuración del objeto para acceder directamente a la variable post
         // Vue set method to reactive changes
         // set(Object, propertyName, value)     [ Object -> Objeto al que queremos agregar la nueva propiedad, propertyName -> Nombre de la propiedad a agregar, Value -> Valor de la propiedad ]
-        const post = eventData.post
-        const postId = eventData.post['.key']
+        const postId = post['.key']
 
         this.$set(sourceData.posts, postId, post)
         this.$set(this.thread.posts, postId, postId)
