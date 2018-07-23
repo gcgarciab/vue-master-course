@@ -22,12 +22,8 @@
 
 <script>
   import sourceData from '@/data'
-  import AppDate from './AppDate'
-  export default {
-    components: {
-      AppDate
-    },
 
+  export default {
     props: {
       post: {
         required: true,
