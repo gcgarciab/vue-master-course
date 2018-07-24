@@ -1,23 +1,23 @@
 <template>
   <div class="col-full">
     <h1>Welcome to the forum</h1>
-    <ThreadList :threads="threads"/>
+    <ForumList :forums="forums"/>
   </div>
 </template>
 
 <script>
   import sourceDate from '@/data'
-  import ThreadList from '@/components/ThreadList'
+  import ForumList from '@/components/ForumList'
   console.log(sourceDate)
 
   export default {
     components: {
-      ThreadList
+      ForumList
     },
 
     data () {
       return {
-        threads: Object.values(sourceDate.threads),
+        forums: Object.values(sourceDate.forums),
         posts: sourceDate.posts,
         users: sourceDate.users
       }
