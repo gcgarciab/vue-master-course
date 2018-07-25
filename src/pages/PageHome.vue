@@ -6,18 +6,16 @@
 </template>
 
 <script>
-  import sourceDate from '@/data'
   import CategoryList from '@/components/CategoryList'
-  console.log(sourceDate)
 
   export default {
     components: {
       CategoryList
     },
 
-    data () {
-      return {
-        categories: Object.values(sourceDate.categories)
+    computed: {
+      categories () {
+        return this.$store.state.categories
       }
     }
   }
