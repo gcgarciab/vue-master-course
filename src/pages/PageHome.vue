@@ -15,7 +15,8 @@
 
     computed: {
       categories () {
-        return this.$store.state.categories
+        console.log(this.$store.state)
+        return Object.values(this.$store.state.categories)
       }
     }
   }

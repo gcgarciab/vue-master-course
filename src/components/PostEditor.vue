@@ -32,21 +32,17 @@
 
     methods: {
       save () {
-        // Add post to the Post object
-        const postId = 'greatPost' + Math.random()
         const post = {
           text: this.text,
           publishedAt: Math.floor(Date.now() / 1000),
           threadId: this.threadId,
-          userId: 'jUjmgCurRRdzayqbRMO7aTG9X1G2',
-          '.key': postId
+          userId: 'jUjmgCurRRdzayqbRMO7aTG9X1G2'
         }
 
         this.text = ''
 
-        // Communication with parent -> custom events
-        // emit(nameEvent, args) -> args like data that be sending to event listener
         this.$emit('save', {post})
+        this.$store.dispatch('createPost', post)
       }
     }
   }

@@ -6,7 +6,7 @@
       <span style="float: right; margin-top: 2px;" class="hide-mobile text-faded text-small">2 replies by 3 contributors</span>
     </p>
     <PostList :posts="posts"/>
-    <PostEditor @save="addPost" :threadId="id"/>
+    <PostEditor :threadId="id"/>
   </div>
 </template>
 
@@ -30,6 +30,7 @@
 
     computed: {
       posts () {
+        console.log(this.$store.state)
         const postIds = Object.values(this.thread.posts)
         // Convert object y array && Filter in Posts by id
         return Object.values(this.$store.state.posts)
@@ -40,18 +41,6 @@
     components: {
       PostList,
       PostEditor
-    },
-
-    methods: {
-      addPost ({post}) { // {post} -> desestructuración del objeto para acceder directamente a la variable post
-        // Vue set method to reactive changes
-        // set(Object, propertyName, value)     [ Object -> Objeto al que queremos agregar la nueva propiedad, propertyName -> Nombre de la propiedad a agregar, Value -> Valor de la propiedad ]
-        const postId = post['.key']
-
-        this.$set(this.$store.state.posts, postId, post)
-        this.$set(this.thread.posts, postId, postId)
-        this.$set(this.$store.state.users[post.userId].posts, postId, postId)
-      }
     }
   }
 </script>
