@@ -1,5 +1,5 @@
 const countObjectProperties = obj => {
-  if (typeof Obj === 'object') {
+  if (typeof obj === 'object') {
     return Object.keys(obj).length
   }
   return 0
