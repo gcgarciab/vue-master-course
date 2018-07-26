@@ -21,7 +21,8 @@
 </template>
 
 <script>
-  import {countObjectProperties} from '@/utils/index'
+  import {countObjectProperties} from '@/utils'
+
   export default {
     props: {
       post: {
