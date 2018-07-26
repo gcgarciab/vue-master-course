@@ -9,7 +9,6 @@
 
 <script>
   import ForumListItem from '@/components/ForumListItem'
-  import sourceData from '@/data'
   import CategoryListItem from '../components/CategoryListItem'
   export default {
     props: {
@@ -26,14 +25,7 @@
 
     computed: {
       category () {
-        return sourceData.categories[this.id]
-      },
-
-      categoryForums () {
-        return Object.values(sourceData.forums)
-          .filter(forum => {
-            return forum.categoryId === this.id
-          })
+        return this.$store.state.categories[this.id]
       }
     }
   }

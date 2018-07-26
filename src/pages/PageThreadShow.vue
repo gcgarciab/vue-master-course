@@ -6,12 +6,11 @@
       <span style="float: right; margin-top: 2px;" class="hide-mobile text-faded text-small">2 replies by 3 contributors</span>
     </p>
     <PostList :posts="posts"/>
-    <PostEditor @save="addPost" :threadId="id"/>
+    <PostEditor :threadId="id"/>
   </div>
 </template>
 
 <script>
-  import sourceData from '@/data'
   import PostList from '@/components/PostList'
   import PostEditor from '@/components/PostEditor'
   export default {
@@ -22,18 +21,15 @@
       }
     },
 
-    data () {
-      return {
-        thread: sourceData.threads[this.id],
-        newPostText: ''
-      }
-    },
-
     computed: {
+      thread () {
+        return this.$store.state.threads[this.id]
+      },
+
       posts () {
         const postIds = Object.values(this.thread.posts)
         // Convert object y array && Filter in Posts by id
-        return Object.values(sourceData.posts)
+        return Object.values(this.$store.state.posts)
           .filter(post => postIds.includes(post['.key']))
       }
     },
@@ -41,18 +37,6 @@
     components: {
       PostList,
       PostEditor
-    },
-
-    methods: {
-      addPost ({post}) { // {post} -> desestructuración del objeto para acceder directamente a la variable post
-        // Vue set method to reactive changes
-        // set(Object, propertyName, value)     [ Object -> Objeto al que queremos agregar la nueva propiedad, propertyName -> Nombre de la propiedad a agregar, Value -> Valor de la propiedad ]
-        const postId = post['.key']
-
-        this.$set(sourceData.posts, postId, post)
-        this.$set(this.thread.posts, postId, postId)
-        this.$set(sourceData.users[post.userId].posts, postId, postId)
-      }
     }
   }
 </script>
