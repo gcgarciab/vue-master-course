@@ -21,16 +21,12 @@
       }
     },
 
-    data () {
-      return {
-        thread: this.$store.state.threads[this.id],
-        newPostText: ''
-      }
-    },
-
     computed: {
+      thread () {
+        return this.$store.state.threads[this.id]
+      },
+
       posts () {
-        console.log(this.$store.state)
         const postIds = Object.values(this.thread.posts)
         // Convert object y array && Filter in Posts by id
         return Object.values(this.$store.state.posts)
