@@ -6,12 +6,7 @@
           <h1>{{forum.name}}</h1>
           <p class="text-lead">{{forum.description}}</p>
         </div>
-        <router-link
-          :to="{name: 'ThreadCreate', params: {forumId: this.forum['.key']}}"
-          class="btn-green btn-small"
-        >
-          Start a thread
-        </router-link>
+        <a href="new-thread.html" class="btn-green btn-small">Start a thread</a>
       </div>
     </div>
     <div class="col-full push-top">
