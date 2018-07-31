@@ -2555,9 +2555,6 @@ hr {
   min-height: 100vh;
 }
 
-.form-group > textarea {
-  display: block;
-  font-family: 'Open sans', sans-serif;
-  position: relative;
+.post-content > div {
   width: 100%;
 }
