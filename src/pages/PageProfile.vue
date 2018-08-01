@@ -4,27 +4,12 @@
     <UserProfileCard
       v-if="!edit"
       :user="user"
-      :userThreadsCount="userThreadsCount"
-      :userPostCount="userPostCount"
     />
 
     <UserProfileCardEditor
       v-else
       :user="user"
-      :userThreadsCount="userThreadsCount"
-      :userPostCount="userPostCount"
     />
-
-    <!--<div class="col-3 push-top">-->
-
-      <!--<p class="text-xsmall text-faded text-center">Member since june 2003, last visited 4 hours ago</p>-->
-
-      <!--<div class="text-center">-->
-        <!--<hr>-->
-        <!--<a href="edit-profile.html" class="btn-green btn-small">Edit Profile</a>-->
-      <!--</div>-->
-
-    <!--</div>-->
 
     <div class="col-7 push-top">
 
@@ -47,7 +32,6 @@
   import PostList from '@/components/PostList'
   import UserProfileCard from '@/components/UserProfileCard'
   import UserProfileCardEditor from '@/components/UserProfileCardEditor'
-  import {countObjectProperties} from '@/utils'
 
   export default {
     components: {
@@ -67,14 +51,6 @@
       ...mapGetters({
         'user': 'authUser'
       }),
-
-      userThreadsCount () {
-        return countObjectProperties(this.user.threads)
-      },
-
-      userPostCount () {
-        return countObjectProperties(this.user.posts)
-      },
 
       userPosts () {
         if (this.user.posts) {
