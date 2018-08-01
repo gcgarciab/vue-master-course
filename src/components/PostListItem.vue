@@ -2,10 +2,13 @@
   <div class="post">
     <div class="user-info">
       <a href="#" class="user-name">{{user.name}}</a>
+
       <a href="#">
         <img class="avatar-large" :src="user.avatar" alt="">
       </a>
+
       <p class="desktop-only text-small">{{userPostsCount}} posts</p>
+      <p class="desktop-only text-small">{{userThreadsCount}} threads</p>
     </div>
 
     <div class="post-content">
@@ -60,6 +63,10 @@
 
       userPostsCount () {
         return this.$store.getters.userPostsCount(this.post.userId)
+      },
+
+      userThreadsCount () {
+        return this.$store.getters.userThreadsCount(this.post.userId)
       }
     }
   }
